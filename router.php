@@ -16,9 +16,9 @@ if (array_key_exists("page", $_GET)) {
         default:
         # code...
     break;
-} else{
+    }
+} else {
     $controller = new OrderController();
 
 }
 $controller->render();
-}
