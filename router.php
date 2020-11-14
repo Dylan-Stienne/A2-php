@@ -1,24 +1,23 @@
 <?php
 
-use App\Controller\OrderController;
-use App\Controller\ProductController;
+use App\Controller\ProfilController;
+use App\Controller\CreateSurveyController;
+use App\Controller\Error404Controller;
 
 if (array_key_exists("page", $_GET)) {
-    
+
     switch ($_GET["page"]) {
-        case 'orders':
-            $controller = new OrderController();
-        break;
-        case 'product':
-            $controller = new ProductController();
-        break;
-        
+        case 'profil':
+            $controller = new ProfilController();
+            break;
+        case 'new':
+            $controller = new CreateSurveyController();
+            break;
         default:
-        # code...
-    break;
+            $controller = new Error404Controller();
+            break;
     }
 } else {
-    $controller = new OrderController();
-
+    $controller = new Error404Controller();
 }
 $controller->render();
