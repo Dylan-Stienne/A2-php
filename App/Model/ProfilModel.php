@@ -4,7 +4,6 @@ namespace App\Model;
 
 use Core\Database;
 
-class AccueilModel extends Database{
-
+class ProfilModel extends Database
+{
 }
-
