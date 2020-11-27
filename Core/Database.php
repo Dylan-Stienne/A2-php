@@ -1,7 +1,10 @@
 <?php
+
 namespace Core;
 
-class Database{
+
+class Database
+{
 
     /**
      * Stockage de la connexion à la BDD
@@ -36,7 +39,7 @@ class Database{
     {
         $query = $this->pdo->query($statement);
 
-        if($one){
+        if ($one) {
             return $query->fetch(\PDO::FETCH_OBJ);
         } else {
             return $query->fetchAll(\PDO::FETCH_OBJ);
@@ -46,6 +49,10 @@ class Database{
     public function prepare($statement, $data = array())
     {
         $prepare = $this->pdo->prepare($statement);
-        $prepare->execute($data);
+        return $prepare->execute($data);
+    }
+
+    function getLastInsertId(){
+        return $this->pdo->lastInsertId();
     }
 }

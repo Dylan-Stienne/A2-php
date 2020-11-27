@@ -9,12 +9,15 @@
 </head>
 
 <body>
-
     <div class="content">
-        <form action="">
+        <form action="?page=saveSurvey" method="POST">
             <div class="field">
                 <label for="title">Title: </label>
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="field">
+                <label for="date">Date: </label>
+                <input type="date" id="date" name="date" required>
             </div>
             <div class="field">
                 <label for="answer_1">Réponse 1: </label>
