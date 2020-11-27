@@ -10,7 +10,7 @@
 
 <body>
     <div class="content">
-        <form action="?page=saveSurvey" method="POST">
+        <form action="" method="POST">
             <div class="field">
                 <label for="title">Title: </label>
                 <input type="text" id="title" name="title" required>
@@ -36,7 +36,7 @@
                 <input type="text" id="answer_4" name="answer_4">
             </div>
 
-            <button type="submit">Créer le sondage</button>
+            <button name="actionCreateSurvey">Créer le sondage</button>
         </form>
     </div>
 

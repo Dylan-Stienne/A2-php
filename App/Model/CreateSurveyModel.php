@@ -24,7 +24,7 @@ class CreateSurveyModel extends Database
             "endDate" => $endDate
         );
         $this->prepare("INSERT INTO `surveys` (`title`, `author_pid`, `end_date`) VALUES (:title, :authorPid, :endDate)", $datas);
-        
+
         // insert survey answers
         $surveyId = $this->getLastInsertId();
         foreach ($answers as $answer) {
@@ -34,5 +34,19 @@ class CreateSurveyModel extends Database
             );
             $this->prepare("INSERT INTO `surveys_answers` (`survey_id`, `text`) VALUES (:surveyId, :content)", $datas);
         }
+    }
+
+    public function formatAnswers($datas)
+    {
+        // init answers list
+        $answers = [];
+
+        // generate list from datas
+        $nb = 1;
+        while (array_key_exists("answer_" . $nb, $datas)) {
+            array_push($answers, $datas["answer_" . $nb]);
+            $nb++;
+        }
+        return $answers;
     }
 }

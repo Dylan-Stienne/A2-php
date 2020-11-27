@@ -14,18 +14,8 @@ class CreateSurveyController
 
     public function saveSurvey($datas)
     {
-        // init answers list
-        $answers = [];
-
-        // generate list from datas
-        $nb = 1;
-        while (array_key_exists("answer_" . $nb, $datas)) {
-            array_push($answers, $datas["answer_" . $nb]);
-            $nb++;
-        }
-
-        // insert
-        if (array_key_exists("title", $datas) && array_key_exists("date", $datas)) {
+        if (array_key_exists("actionCreateSurvey", $datas)) {
+            $answers = $this->model->formatAnswers($datas);
             $this->model->createSurvey($datas["title"], $datas["date"], $answers);
         }
     }

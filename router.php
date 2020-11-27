@@ -6,6 +6,8 @@ use App\Controller\ProfilController;
 use App\Controller\CreateSurveyController;
 use App\Controller\Error404Controller;
 use App\Controller\AccueilController;
+use App\Controller\RegisterController;
+
 
 if (array_key_exists("page", $_GET)) {
 
@@ -16,11 +18,12 @@ if (array_key_exists("page", $_GET)) {
             break;
         case 'new':
             $controller = new CreateSurveyController();
+            $controller->saveSurvey($_POST);
             $controller->render();
             break;
-        case 'saveSurvey':
-            $controller = new CreateSurveyController();
-            $controller->saveSurvey($_POST);
+        case 'register':
+            $controller = new RegisterController();
+            $controller->createUser($_POST);
             $controller->render();
             break;
         default:
