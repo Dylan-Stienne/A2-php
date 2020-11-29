@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/accueilView.css">
-
-    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/friendsView.css">
+    <title>friends</title>
 </head>
 
 <body>
     <header>
-        <h1 style="color: blue;">Accueil</h1>
+        <h1 style="color: blue;">Amis</h1>
         <!-- header dupliqué partout juste pour la démo, on sait que c'est pas propre -->
         <nav>
             <ul>
@@ -27,19 +26,16 @@
     </header>
 
     <main class="centre">
-        <h2 class="titre">Sondages en cours des amis</h2>
-        <section class="sondages">
-            <ul id="friends-surveys"></ul>
-        </section>
+        <i class="fas fa-search"></i>
+        <input id="searching-input" type="text" placeholder="Qui recherchez-vous ?">
+        <div id="searching-list"></div>
 
-        <h2 class="titre">Sondages de l'utilisateur</h2>
-        <section class="sondages">
-            <ul id="my-surveys"></ul>
-        </section>
+        <h2>mes amis actuel</h2>
+        <table id="my-friends"></table>
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../public/ajax/accueilView.js"></script>
+    <script src="../public/ajax/friendsView.js"></script>
 </body>
 
 </html>

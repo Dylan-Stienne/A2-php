@@ -35,9 +35,10 @@ class Database
         }
     }
 
-    public function query($statement, $one = false)
+    public function query($statement, $data = array(), $one = false)
     {
-        $query = $this->pdo->query($statement);
+        $query = $this->pdo->prepare($statement);
+        $query->execute($data);
 
         if ($one) {
             return $query->fetch(\PDO::FETCH_OBJ);

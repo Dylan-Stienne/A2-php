@@ -11,21 +11,20 @@ class CreateSurveyModel extends Database
      */
     public function createSurvey($title, $endDate, $answers)
     {
-        // get author id if user is connected
-        $userId = 0;
-        if (array_key_exists('id', $_SESSION)) {
-            $userId = $_SESSION['id'];
+        // Verify user connected
+        if (!array_key_exists('id', $_SESSION)) {
+            return;
         }
 
-        // insert survey infos
+        // Insert survey infos
         $datas = array(
             "title" => $title,
-            "authorPid" => $userId,
+            "authorPid" => $_SESSION['id'],
             "endDate" => $endDate
         );
-        $this->prepare("INSERT INTO `surveys` (`title`, `author_pid`, `end_date`) VALUES (:title, :authorPid, :endDate)", $datas);
+        $this->prepare("INSERT INTO `surveys` (`title`, `author_id`, `end_date`) VALUES (:title, :authorPid, :endDate)", $datas);
 
-        // insert survey answers
+        // Insert survey answers
         $surveyId = $this->getLastInsertId();
         foreach ($answers as $answer) {
             $datas = array(
@@ -36,12 +35,15 @@ class CreateSurveyModel extends Database
         }
     }
 
+    /**
+     * Create answers list
+     */
     public function formatAnswers($datas)
     {
-        // init answers list
+        // Init answers list
         $answers = [];
 
-        // generate list from datas
+        // Generate list from datas
         $nb = 1;
         while (array_key_exists("answer_" . $nb, $datas)) {
             array_push($answers, $datas["answer_" . $nb]);
