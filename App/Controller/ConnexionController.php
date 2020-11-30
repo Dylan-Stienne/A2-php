@@ -10,8 +10,13 @@ class ConnexionController{
         $this->model = new ConnexionModel();
     }
 
+    public function login($datas){
+        if (array_key_exists("actionSaveUser", $datas)) {
+            $this->model->connexion($datas["email"], $datas["password"]);
+        }
+    }
+
     public function render(){
-        $orders = $this->model->query("SELECT * FROM orders");
         require ROOT."/App/View/connexionView.php";
     }
 }
