@@ -7,6 +7,7 @@ use App\Controller\CreateSurveyController;
 use App\Controller\Error404Controller;
 use App\Controller\AccueilController;
 use App\Controller\RegisterController;
+use App\Controller\ConnexionController;
 use App\Controller\FriendsController;
 
 if (array_key_exists("page", $_GET)) {
@@ -23,6 +24,11 @@ if (array_key_exists("page", $_GET)) {
         case 'register':
             $controller = new RegisterController();
             $controller->createUser($_POST);
+            $controller->render();
+            break;
+        case 'login':
+            $controller = new ConnexionController();
+            $controller->login($_POST);
             $controller->render();
             break;
         case 'friends':

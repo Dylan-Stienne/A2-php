@@ -11,7 +11,7 @@ class ConnexionController{
     }
 
     public function login($datas){
-        if (array_key_exists("actionSaveUser", $datas)) {
+        if (array_key_exists("actionConnexion", $datas)) {
             $this->model->connexion($datas["email"], $datas["password"]);
         }
     }
