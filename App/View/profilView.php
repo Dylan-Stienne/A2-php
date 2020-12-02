@@ -26,7 +26,7 @@
     </header>
 
     <main class="content">
-        <form action="">
+        <form id="formulaire" >
             <div class="field">
                 <label for="userName">Pseudo: </label>
                 <input type="text" id="userName" name="userName">
@@ -49,12 +49,17 @@
             </div>
             <label for="password">Changer mon mot de passe: </label>
             <input type="password" id="password" name="password" placeholder="Nouveau mot de passe">
-            <input type="password" name="confirm-password" placeholder="Comfirmer le nouveau mot de passe">
+            <input type="password" name="confirm-password" placeholder="Confirmer le nouveau mot de passe">
 
             <button type="submit">Enregistrer</button>
         </form>
     </main>
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../public/ajax/profilView.js"></script>
+
 </body>
+
 
 </html>

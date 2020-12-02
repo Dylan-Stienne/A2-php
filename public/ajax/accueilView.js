@@ -23,7 +23,6 @@ function getMySurveys() {
         url: "?action=get-my-surveys",
         dataType: 'json',
         success: function (response) {
-            console.log(response);
             $("#my-surveys").empty();
             response.forEach(survey => {
                 $("#my-surveys").append(`

@@ -55,6 +55,14 @@ if (array_key_exists("page", $_GET)) {
             $controller = new FriendsController();
             $controller->getFriends($_POST);
             break;
+        case 'get-my-infos':
+            $controller = new ProfilController();
+            $controller->getMyInfos();
+            break;
+        case 'update-my-infos':
+            $controller = new ProfilController();
+            $controller->updateMyInfos($_POST);
+            break;
         case 'add-friend':
             $controller = new FriendsController();
             $controller->addFriend($_POST);
