@@ -11,8 +11,9 @@ class RegisterModel extends Database
         $datas = array(
             "username" => $username,
             "email" => $email,
-            "password" => password_hash($password, PASSWORD_BCRYPT)
+            "password" => hash("sha256", $password)
         );
         $this->prepare("INSERT INTO `users` (`username`, `email`, `password`) VALUES (:username, :email, :password)", $datas);
+        header('Location: ./?page=login');
     }
 }

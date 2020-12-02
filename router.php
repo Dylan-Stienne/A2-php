@@ -7,7 +7,10 @@ use App\Controller\CreateSurveyController;
 use App\Controller\Error404Controller;
 use App\Controller\AccueilController;
 use App\Controller\RegisterController;
+use App\Controller\ConnexionController;
 use App\Controller\FriendsController;
+use App\Controller\SurveyController;
+use App\Controller\ResultatController;
 
 if (array_key_exists("page", $_GET)) {
 
@@ -25,8 +28,21 @@ if (array_key_exists("page", $_GET)) {
             $controller->createUser($_POST);
             $controller->render();
             break;
+        case 'login':
+            $controller = new ConnexionController();
+            $controller->login($_POST);
+            $controller->render();
+            break;
         case 'friends':
             $controller = new FriendsController();
+            $controller->render();
+            break;
+        case 'survey':
+            $controller = new SurveyController();
+            $controller->render();
+            break;
+        case 'result':
+            $controller = new ResultatController();
             $controller->render();
             break;
         default:
@@ -72,6 +88,22 @@ if (array_key_exists("page", $_GET)) {
         case 'get-my-surveys':
             $controller = new AccueilController();
             $controller->getMySurveys();
+            break;
+        case 'get-survey':
+            $controller = new SurveyController();
+            $controller->getSurvey($_GET);
+            break;
+        case 'get-result':
+            $controller = new ResultatController();
+            $controller->getResult($_GET);
+            break;
+        case 'save-vote':
+            $controller = new SurveyController();
+            $controller->saveVote($_POST);
+            break;
+        case 'log-out':
+            $controller = new ConnexionController();
+            $controller->logOut();
             break;
         default:
             break;

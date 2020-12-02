@@ -40,7 +40,7 @@ class ProfilModel extends Database
             'firstName' => $firstName,
             'lastName' => $lastName,
             'birthDate' => $birthDate,
-            'password' => password_hash($password, PASSWORD_BCRYPT),
+            'password' => hash("sha256", $password),
         );
 
         $req = $this->prepare("UPDATE users SET

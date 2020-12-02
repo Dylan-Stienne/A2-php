@@ -10,8 +10,14 @@ class ResultatController{
         $this->model = new ResultatModel();
     }
 
+    public function getResult($datas)
+    {
+        if (array_key_exists('survey', $datas)) {
+            $this->model->getResult($datas['survey']);
+        }
+    }
+
     public function render(){
-        $orders = $this->model->query("SELECT * FROM orders");
         require ROOT."/App/View/resultatView.php";
     }
 }

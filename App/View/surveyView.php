@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/accueilView.css">
-
-    <title>Document</title>
+    <title>Sondage</title>
 </head>
 
 <body>
     <header>
-        <h1 style="color: blue;">Accueil</h1>
+        <h1 style="color: blue;">Sondage</h1>
         <!-- header dupliqué partout juste pour la démo, on sait que c'est pas propre -->
         <nav>
             <ul>
@@ -26,21 +24,14 @@
         <hr>
     </header>
 
-    <main class="centre">
-        <button id="button-logout">Me déconnecter</button>
-        <h2 class="titre">Sondages en cours des amis</h2>
-        <section class="sondages">
-            <ul id="friends-surveys"></ul>
-        </section>
+    <main>
+        <h1 id="survey-title"></h1>
+        <ul id="survey-answers"></ul>
 
-        <h2 class="titre">Sondages de l'utilisateur</h2>
-        <section class="sondages">
-            <ul id="my-surveys"></ul>
-        </section>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../public/ajax/surveyView.js"></script>
     </main>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../public/ajax/accueilView.js"></script>
 </body>
 
 </html>

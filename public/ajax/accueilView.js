@@ -10,7 +10,7 @@ function getFriendsSurveys() {
             response.forEach(survey => {
                 $("#friends-surveys").append(`
                 <li>
-                    <a href="#">${survey.survey_title}</a> fait par ${survey.friend_username}
+                    <a href="?page=survey&survey=${survey.survey_id}">${survey.survey_title}</a> fait par ${survey.friend_username}
                 </li>            
                 `)
             });
@@ -27,7 +27,7 @@ function getMySurveys() {
             response.forEach(survey => {
                 $("#my-surveys").append(`
                 <li>
-                    <a href="#">${survey.survey_title}</a>
+                    <a href="?page=survey&survey=${survey.survey_id}">${survey.survey_title}</a>
                 </li>            
                 `)
             });
@@ -35,3 +35,13 @@ function getMySurveys() {
     })
 }
 
+$('#button-logout').click(logOut())
+function logOut() {
+    $.ajax({
+        url: "?action=log-out",
+        dataType: 'json',
+        success: function (response) {
+            window.location.href = '?page=login';
+        }
+    })
+}
