@@ -12,9 +12,33 @@ class ProfilController
         $this->model = new ProfilModel();
     }
 
+    public function getMyInfos()
+    {
+        $this->model->getMyInfos();
+    }
+
+    public function updateMyInfos($datas)
+    {
+        if(array_key_exists("username", $datas) 
+            && array_key_exists("email", $datas) 
+            && array_key_exists("firstName", $datas)
+            && array_key_exists("lastName", $datas)
+            && array_key_exists("birthDate", $datas)
+            && array_key_exists("password", $datas)
+        ){
+            $this->model->updateMyInfos(
+                htmlspecialchars($datas['username']),
+                htmlspecialchars ($datas['email']),
+                htmlspecialchars ($datas['firstName']),
+                htmlspecialchars ($datas['lastName']),
+                htmlspecialchars ($datas['birthDate']),
+                htmlspecialchars ($datas['password'])
+            );
+        }
+    }
+
     public function render()
     {
-        #$product = $this->model->query("SELECT * FROM products WHERE productCode = 'S10_1678'", true);
         require ROOT . "/App/View/profilView.php";
     }
 }
