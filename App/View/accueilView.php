@@ -27,6 +27,7 @@
     </header>
 
     <main class="centre">
+        <button id="button-logout">Me déconnecter</button>
         <h2 class="titre">Sondages en cours des amis</h2>
         <section class="sondages">
             <ul id="friends-surveys"></ul>

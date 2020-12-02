@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/css/resultat.css" />
+    <link rel="stylesheet" href="../public/css/resultatView.css" />
     <title>Résultat</title>
 </head>
 
@@ -25,23 +25,13 @@
         <hr>
     </header>
 
-    <main class="sondage">
-        <h2>Titre du sondage</h2>
-        <div class="radio">
-            <input type="radio" id="volley" name="sport" value="volley">
-            <label for="volley">Volley</label>
-            <p>60%</p>
-        </div>
-        <div class="radio">
-            <input type="radio" id="basket" name="sport" value="basket">
-            <label for="basket">Basket</label>
-            <p>30%</p>
-        </div>
-        <div class="radio">
-            <input type="radio" id="baseball" name="sport" value="baseball">
-            <label for="baseball">Baseball</label>
-            <p>10%</p>
-        </div>
+    <main>
+        <h1 id="survey-title"></h1>
+        <ul id="survey-answers"></ul>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../public/ajax/resultatView.js"></script>
     </main>
 </body>
 

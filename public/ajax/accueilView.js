@@ -35,3 +35,13 @@ function getMySurveys() {
     })
 }
 
+$('#button-logout').click(logOut())
+function logOut() {
+    $.ajax({
+        url: "?action=log-out",
+        dataType: 'json',
+        success: function (response) {
+            window.location.href = '?page=login';
+        }
+    })
+}
