@@ -35,8 +35,7 @@ function getMySurveys() {
     })
 }
 
-$('#button-logout').click(logOut())
-function logOut() {
+$('#button-logout').click(function(){
     $.ajax({
         url: "?action=log-out",
         dataType: 'json',
@@ -44,4 +43,4 @@ function logOut() {
             window.location.href = '?page=login';
         }
     })
-}
+})
