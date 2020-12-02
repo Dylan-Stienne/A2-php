@@ -33,6 +33,8 @@ class CreateSurveyModel extends Database
             );
             $this->prepare("INSERT INTO `surveys_answers` (`survey_id`, `text`) VALUES (:surveyId, :content)", $datas);
         }
+
+        header('Location: ?page=survey&survey='.$surveyId);
     }
 
     /**

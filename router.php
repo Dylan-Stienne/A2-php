@@ -9,6 +9,7 @@ use App\Controller\AccueilController;
 use App\Controller\RegisterController;
 use App\Controller\ConnexionController;
 use App\Controller\FriendsController;
+use App\Controller\SurveyController;
 
 if (array_key_exists("page", $_GET)) {
 
@@ -33,6 +34,10 @@ if (array_key_exists("page", $_GET)) {
             break;
         case 'friends':
             $controller = new FriendsController();
+            $controller->render();
+            break;
+        case 'survey':
+            $controller = new SurveyController();
             $controller->render();
             break;
         default:
@@ -70,6 +75,14 @@ if (array_key_exists("page", $_GET)) {
         case 'get-my-surveys':
             $controller = new AccueilController();
             $controller->getMySurveys();
+            break;
+        case 'get-survey':
+            $controller = new SurveyController();
+            $controller->getSurvey($_GET);
+            break;
+        case 'save-vote':
+            $controller = new SurveyController();
+            $controller->saveVote($_POST);
             break;
         default:
             break;

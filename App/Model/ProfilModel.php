@@ -4,6 +4,6 @@ namespace App\Model;
 
 use Core\Database;
 
-class ProfilModel extends Database
-{
+class ProfilModel extends Database{
+    
 }
